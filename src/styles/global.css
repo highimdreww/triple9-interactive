@@ -108,7 +108,7 @@ footer { border-top: 1px solid var(--line); background: #0c0c0b; }
 .signup p { font-size: 10px; color: var(--muted); line-height: 1.6; margin-top: 12px; }
 .signup p a { text-decoration: underline; }
 .footer-main { padding-block: 64px; display: flex; justify-content: space-between; gap: 64px; }
-.footer-logo { width: 300px; max-width: 100%; height: auto; display: block; }
+.footer-logo { width: 440px; max-width: 100%; height: auto; display: block; }
 .footer-wordmark { font-family: 'Barlow Condensed', sans-serif; font-size: 48px; font-weight: 800; letter-spacing: -.04em; line-height: .9; }
 .footer-wordmark span { display: block; font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: .035em; margin-top: 10px; }
 .footer-links { display: flex; flex-wrap: wrap; gap: 24px 36px; align-items: flex-start; padding-top: 6px; font-size: 12px; }
@@ -133,7 +133,7 @@ footer { border-top: 1px solid var(--line); background: #0c0c0b; }
   .wrap { width: calc(100% - 40px); }
   .site-header { height: 72px; padding-inline: 20px; }
   .header-logo { height: 38px; }
-  .footer-logo { width: 230px; }
+  .footer-logo { width: 300px; }
   .header-brand { gap: 12px; }
   .header-name { font-size: 9px; }
   .site-header nav { gap: 16px; font-size: 10px; }
