@@ -2,6 +2,7 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import site from '../content/site.json';
+import { localUrl } from '../lib/urls';
 import '@fontsource/inter/latin-400.css';
 import '@fontsource/inter/latin-500.css';
 import '@fontsource/inter/latin-600.css';
@@ -19,6 +20,7 @@ const canonical = new URL(import.meta.env.BASE_URL, Astro.site);
     <meta name="theme-color" content="#080808" />
     <title>{site.name} | Games & apps</title>
     <meta name="description" content={site.description} />
+    <link rel="icon" type="image/png" href={localUrl('favicon.png')} />
     <link rel="canonical" href={canonical} />
     <meta property="og:title" content={site.name} />
     <meta property="og:description" content={site.description} />

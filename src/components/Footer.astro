@@ -1,5 +1,6 @@
 ---
 import site from '../content/site.json';
+import { localUrl } from '../lib/urls';
 type Social = { label: string; url: string };
 const socials = site.socials as Social[];
 const newsletterReady = Boolean(site.newsletter.action && site.newsletter.privacyUrl);
@@ -18,9 +19,9 @@ const newsletterReady = Boolean(site.newsletter.action && site.newsletter.privac
     </div>}
   </section>
   <div class="footer-main wrap">
-    <a class="footer-wordmark" href="#top" aria-label="Triple9 Interactive, back to top">Triple9<span>Interactive</span></a>
+    <a class="footer-wordmark" href="#top" aria-label="Triple9 Interactive, back to top"><img class="footer-logo" src={localUrl('images/t9-interactive-logo.png')} alt="Triple9 Interactive" width="993" height="593" /></a>
     <div class="footer-links">
-      {site.supportUrl ? <a href={site.supportUrl}>Support</a> : <details><summary>Support</summary><p>Support details will be available here.</p></details>}
+      <a href="#support">Support</a>
       {site.contactEmail ? <a href={`mailto:${site.contactEmail}`}>Contact</a> : <details><summary>Contact</summary><p>Contact details will be available here.</p></details>}
       {socials.length ? socials.map(social => <a href={social.url} rel="noopener noreferrer">{social.label}</a>) : <details><summary>Socials</summary><p>Official channels will be announced here.</p></details>}
       {site.legalUrl ? <a href={site.legalUrl}>Legal</a> : <details><summary>Legal</summary><p>Triple9 Interactive is a studio under Triple9 Brands LLC. All rights reserved.</p></details>}
