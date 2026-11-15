@@ -1,0 +1,5 @@
+---
+interface Props { names: string[]; }
+const { names } = Astro.props;
+---
+<span class="platform"><svg aria-hidden="true" width="12" height="17" viewBox="0 0 12 17" fill="none"><rect x="2" y="1" width="8" height="15" rx="2" stroke="currentColor"/><path d="M5 3h2M5 14h2" stroke="currentColor" stroke-linecap="round"/></svg>{names.join(' / ')}</span>

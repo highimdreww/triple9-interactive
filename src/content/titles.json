@@ -1,0 +1,219 @@
+{
+  "featuredTitleId": "golf",
+  "spotlightIds": [
+    "real-deal",
+    "e11vn",
+    "selah"
+  ],
+  "heroCta": "Explore our titles",
+  "artSpecs": {
+    "heroDesktop": {
+      "width": 2560,
+      "height": 1440,
+      "orientation": "landscape",
+      "safeArea": {
+        "x": 640,
+        "y": 288,
+        "width": 1280,
+        "height": 864
+      },
+      "format": "WebP",
+      "maxBytes": 700000
+    },
+    "heroMobile": {
+      "width": 1080,
+      "height": 1440,
+      "orientation": "portrait",
+      "safeArea": {
+        "x": 108,
+        "y": 288,
+        "width": 864,
+        "height": 864
+      },
+      "format": "WebP",
+      "maxBytes": 350000
+    },
+    "featured": {
+      "width": 1920,
+      "height": 1080,
+      "orientation": "landscape",
+      "safeArea": {
+        "x": 192,
+        "y": 216,
+        "width": 1536,
+        "height": 648
+      },
+      "format": "WebP",
+      "maxBytes": 450000
+    },
+    "library": {
+      "width": 1000,
+      "height": 1250,
+      "orientation": "portrait",
+      "safeArea": {
+        "x": 100,
+        "y": 125,
+        "width": 800,
+        "height": 1000
+      },
+      "format": "WebP",
+      "maxBytes": 220000
+    }
+  },
+  "titles": [
+    {
+      "id": "golf",
+      "publicTitle": "Golf game",
+      "kind": "game",
+      "status": "In development",
+      "platforms": [
+        "iPhone"
+      ],
+      "line": "Realistic golf for iPhone.",
+      "treatment": "golf",
+      "pagePath": null,
+      "art": {
+        "heroDesktop": {
+          "src": null,
+          "alt": "",
+          "objectPosition": "50% 50%",
+          "plannedPath": "art/golf/heroDesktop.webp"
+        },
+        "heroMobile": {
+          "src": null,
+          "alt": "",
+          "objectPosition": "50% 50%",
+          "plannedPath": "art/golf/heroMobile.webp"
+        },
+        "featured": {
+          "src": null,
+          "alt": "",
+          "objectPosition": "50% 50%",
+          "plannedPath": "art/golf/featured.webp"
+        },
+        "library": {
+          "src": null,
+          "alt": "",
+          "objectPosition": "50% 50%",
+          "plannedPath": "art/golf/library.webp"
+        }
+      },
+      "workingTitle": "Golf game"
+    },
+    {
+      "id": "real-deal",
+      "publicTitle": "Real Deal: Last Stand",
+      "kind": "game",
+      "status": "In development",
+      "platforms": [
+        "iPhone"
+      ],
+      "line": "Hold the line. Survive the next wave.",
+      "treatment": "last-stand",
+      "pagePath": null,
+      "art": {
+        "heroDesktop": {
+          "src": null,
+          "alt": "",
+          "objectPosition": "50% 50%",
+          "plannedPath": "art/real-deal/heroDesktop.webp"
+        },
+        "heroMobile": {
+          "src": null,
+          "alt": "",
+          "objectPosition": "50% 50%",
+          "plannedPath": "art/real-deal/heroMobile.webp"
+        },
+        "featured": {
+          "src": null,
+          "alt": "",
+          "objectPosition": "50% 50%",
+          "plannedPath": "art/real-deal/featured.webp"
+        },
+        "library": {
+          "src": null,
+          "alt": "",
+          "objectPosition": "50% 50%",
+          "plannedPath": "art/real-deal/library.webp"
+        }
+      },
+      "internalDescription": "3D zombie wave shooter. Shoot numbered barrels to upgrade squad weapons. A boss every ten waves."
+    },
+    {
+      "id": "e11vn",
+      "publicTitle": "E11VN",
+      "kind": "app",
+      "status": null,
+      "platforms": [
+        "iPhone"
+      ],
+      "line": "Training and nutrition tracking.",
+      "treatment": "e11vn",
+      "pagePath": null,
+      "art": {
+        "heroDesktop": {
+          "src": null,
+          "alt": "",
+          "objectPosition": "50% 50%",
+          "plannedPath": "art/e11vn/heroDesktop.webp"
+        },
+        "heroMobile": {
+          "src": null,
+          "alt": "",
+          "objectPosition": "50% 50%",
+          "plannedPath": "art/e11vn/heroMobile.webp"
+        },
+        "featured": {
+          "src": null,
+          "alt": "",
+          "objectPosition": "50% 50%",
+          "plannedPath": "art/e11vn/featured.webp"
+        },
+        "library": {
+          "src": null,
+          "alt": "",
+          "objectPosition": "50% 50%",
+          "plannedPath": "art/e11vn/library.webp"
+        }
+      }
+    },
+    {
+      "id": "selah",
+      "publicTitle": "Selah",
+      "kind": "app",
+      "status": null,
+      "platforms": [
+        "iPhone"
+      ],
+      "line": "Read. Study. A daily session.",
+      "treatment": "selah",
+      "pagePath": null,
+      "art": {
+        "heroDesktop": {
+          "src": null,
+          "alt": "",
+          "objectPosition": "50% 50%",
+          "plannedPath": "art/selah/heroDesktop.webp"
+        },
+        "heroMobile": {
+          "src": null,
+          "alt": "",
+          "objectPosition": "50% 50%",
+          "plannedPath": "art/selah/heroMobile.webp"
+        },
+        "featured": {
+          "src": null,
+          "alt": "",
+          "objectPosition": "50% 50%",
+          "plannedPath": "art/selah/featured.webp"
+        },
+        "library": {
+          "src": null,
+          "alt": "",
+          "objectPosition": "50% 50%",
+          "plannedPath": "art/selah/library.webp"
+        }
+      }
+    }
+  ]
+}

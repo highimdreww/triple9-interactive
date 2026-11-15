@@ -1,0 +1,64 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ArtSlot from '../components/ArtSlot.astro';
+import Platform from '../components/Platform.astro';
+import data from '../content/titles.json';
+import { localUrl } from '../lib/urls';
+const featured = data.titles.find(title => title.id === data.featuredTitleId)!;
+const spotlights = data.spotlightIds.map(id => data.titles.find(title => title.id === id)!);
+---
+<BaseLayout>
+  <section class="hero" aria-labelledby="hero-title">
+    <h1 id="hero-title" class="sr-only">{featured.publicTitle}</h1>
+    <ArtSlot title={featured} slot="heroDesktop" />
+    <div class="hero-caption">
+      <p>{featured.status || featured.line}</p>
+      <a class="quiet-cta" href="#library">{data.heroCta}</a>
+    </div>
+  </section>
+
+  <section class="spotlights wrap" aria-label="Featured titles">
+    {spotlights.map((title, index) => <article class:list={['spotlight', { 'spotlight-wide': index === 0 }]}>
+      <div class="spotlight-art"><ArtSlot title={title} slot="featured" /></div>
+      <div class="spotlight-caption">
+        <div><h2>{title.publicTitle}</h2><p>{title.line}</p></div>
+        <div class="title-facts">{title.status && <span>{title.status}</span>}<Platform names={title.platforms} /></div>
+      </div>
+    </article>)}
+  </section>
+
+  <section class="library wrap" id="library" aria-labelledby="library-title">
+    <div class="section-heading"><h2 id="library-title">Game library<span class="library-plus"> & apps</span></h2><a class="text-link" href="#all-titles" data-view-all>View all</a></div>
+    <div class="library-filters" role="group" aria-label="Filter titles" hidden>
+      <button type="button" data-filter="all" aria-pressed="true">All titles</button>
+      <button type="button" data-filter="game" aria-pressed="false">Games</button>
+      <button type="button" data-filter="app" aria-pressed="false">Apps</button>
+    </div>
+    <div class="library-grid" id="all-titles" tabindex="-1">
+      {data.titles.map(title => <article id={`title-${title.id}`} class="library-item" data-kind={title.kind}>
+        {title.pagePath ? <a class="cover-link" href={localUrl(title.pagePath)} aria-label={`Explore ${title.publicTitle}`}><ArtSlot title={title} slot="library" /></a> : <ArtSlot title={title} slot="library" />}
+        <div class="library-caption"><h3>{title.publicTitle}</h3><Platform names={title.platforms} />{title.status && <p>{title.status}</p>}</div>
+      </article>)}
+    </div>
+    <p class="sr-only" role="status" id="filter-status"></p>
+  </section>
+</BaseLayout>
+
+<script>
+  const filters = document.querySelector<HTMLElement>('.library-filters');
+  const buttons = document.querySelectorAll<HTMLButtonElement>('[data-filter]');
+  const items = document.querySelectorAll<HTMLElement>('.library-item');
+  const status = document.querySelector<HTMLElement>('#filter-status');
+  if (filters) filters.hidden = false;
+  function filterTitles(kind: string) {
+    let count = 0;
+    items.forEach(item => { item.hidden = kind !== 'all' && item.dataset.kind !== kind; if (!item.hidden) count++; });
+    buttons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.filter === kind)));
+    if (status) status.textContent = `${count} titles shown`;
+  }
+  buttons.forEach(button => button.addEventListener('click', () => filterTitles(button.dataset.filter || 'all')));
+  document.querySelector('[data-view-all]')?.addEventListener('click', () => {
+    filterTitles('all');
+    document.querySelector<HTMLElement>('#all-titles')?.focus({ preventScroll: true });
+  });
+</script>

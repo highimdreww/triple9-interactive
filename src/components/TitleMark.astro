@@ -1,0 +1,7 @@
+---
+interface Props { title: string; treatment: string; }
+const { title, treatment } = Astro.props;
+---
+<span class:list={['title-mark', `mark-${treatment}`]} aria-label={title}>
+  {treatment === 'last-stand' ? <><span class="real-deal">Real Deal</span><span class="last-stand">Last Stand</span></> : title}
+</span>

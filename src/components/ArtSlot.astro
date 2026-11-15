@@ -1,0 +1,18 @@
+---
+import data from '../content/titles.json';
+import TitleMark from './TitleMark.astro';
+import { localUrl } from '../lib/urls';
+type Title = typeof data.titles[number];
+interface Props { title: Title; slot: 'heroDesktop' | 'featured' | 'library'; }
+const { title, slot } = Astro.props;
+const art = title.art[slot];
+const spec = data.artSpecs[slot];
+const mobile = title.art.heroMobile;
+---
+<div class:list={['art-slot', `tone-${title.treatment}`, `slot-${slot}`]} aria-hidden="true">
+  {art.src && <picture>
+    {slot === 'heroDesktop' && mobile.src && <source media="(max-width: 640px)" srcset={localUrl(mobile.src)} width={data.artSpecs.heroMobile.width} height={data.artSpecs.heroMobile.height} />}
+    <img src={localUrl(art.src)} alt={art.alt} width={spec.width} height={spec.height} style={`--art-position:${art.objectPosition};--mobile-art-position:${slot === 'heroDesktop' ? mobile.objectPosition : art.objectPosition}`} loading={slot === 'heroDesktop' ? 'eager' : 'lazy'} fetchpriority={slot === 'heroDesktop' ? 'high' : 'auto'} decoding="async" />
+  </picture>}
+  <div class="art-title"><TitleMark title={title.publicTitle} treatment={title.treatment} /></div>
+</div>

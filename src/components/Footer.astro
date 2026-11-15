@@ -1,0 +1,30 @@
+---
+import site from '../content/site.json';
+type Social = { label: string; url: string };
+const socials = site.socials as Social[];
+const newsletterReady = Boolean(site.newsletter.action && site.newsletter.privacyUrl);
+---
+<footer>
+  <section class="newsletter wrap" id="updates" aria-labelledby="newsletter-title">
+    <div><h2 id="newsletter-title">Stay in the loop.</h2><p>New titles. The next chapter.</p></div>
+    {newsletterReady ? <form action={site.newsletter.action!} method="post" class="signup">
+      <label for="newsletter-email">Email address</label>
+      <div class="signup-row"><input id="newsletter-email" name={site.newsletter.emailField} type="email" required autocomplete="email" placeholder="Your email address" /><button type="submit">Subscribe</button></div>
+      <p>By subscribing, you agree to our <a href={site.newsletter.privacyUrl!}>privacy policy</a>.</p>
+    </form> : <div class="signup signup-pending">
+      <span class="signup-label">Newsletter</span>
+      <div class="signup-row"><span>Signups opening soon.</span><button disabled aria-describedby="signup-note">Subscribe</button></div>
+      <p id="signup-note">No email collected yet.</p>
+    </div>}
+  </section>
+  <div class="footer-main wrap">
+    <a class="footer-wordmark" href="#top" aria-label="Triple9 Interactive, back to top">Triple9<span>Interactive</span></a>
+    <div class="footer-links">
+      {site.supportUrl ? <a href={site.supportUrl}>Support</a> : <details><summary>Support</summary><p>Support details will be available here.</p></details>}
+      {site.contactEmail ? <a href={`mailto:${site.contactEmail}`}>Contact</a> : <details><summary>Contact</summary><p>Contact details will be available here.</p></details>}
+      {socials.length ? socials.map(social => <a href={social.url} rel="noopener noreferrer">{social.label}</a>) : <details><summary>Socials</summary><p>Official channels will be announced here.</p></details>}
+      {site.legalUrl ? <a href={site.legalUrl}>Legal</a> : <details><summary>Legal</summary><p>Triple9 Interactive is a studio under Triple9 Brands LLC. All rights reserved.</p></details>}
+    </div>
+  </div>
+  <div class="footer-bottom wrap"><span>&copy; {new Date().getFullYear()} {site.company}</span><span>Games. Apps. T9.</span></div>
+</footer>
